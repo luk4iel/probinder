@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>ProBinder - BinderDigital</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <h1>ProBinder - BinderDigital</h1>
+      <p class="subtitle">Monte, organize e compartilhe sua coleção de photocards</p>
+    </div>
+    <div class="user-brief" id="userBrief" onclick="openProfileModal()" title="Abrir perfil">
+      <img id="briefAvatar" src="" alt="avatar">
+      <div id="briefNick" class="briefNick"></div>
+    </div>
+  </header>
+
+  <main class="app">
+    <!-- Auth screen -->
+    <section id="auth" class="panel center">
+      <h2>Bem-vindo ao ProBinder</h2>
+      <p>Crie seu perfil ou entre para começar</p>
+      <div class="auth-actions">
+        <button class="btn" onclick="showSignup()">Criar perfil</button>
+        <button class="btn ghost" onclick="showLogin()">Entrar</button>
+      </div>
+    </section>
+
+    <!-- App screen -->
+    <section id="app" class="panel hidden">
+      <div class="controls">
+        <div class="left">
+          <div class="album-row">
+            <select id="albumSelect" onchange="selectAlbum(this.value)"></select>
+            <button class="btn small" onclick="createAlbumPrompt()">+ Álbum</button>
+          </div>
+        </div>
+        <div class="right">
+          <div class="theme-row">
+            <button class="btn tiny" onclick="setTheme('azul')">Azul</button>
+            <button class="btn tiny" onclick="setTheme('verde')">Verde</button>
+            <button class="btn tiny" onclick="setTheme('lilas')">Lilás</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="tabs" class="tabs" aria-live="polite"></div>
+
+      <div class="page-area">
+        <div id="pagesContainer"></div>
+      </div>
+
+      <div class="page-actions">
+        <button class="btn" onclick="addPage()">+ Página</button>
+        <button class="btn ghost" onclick="logout()">Logout</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden" aria-hidden="true"></div>
+
+  <footer class="footer">ProBinder — dados salvos localmente no seu navegador</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
